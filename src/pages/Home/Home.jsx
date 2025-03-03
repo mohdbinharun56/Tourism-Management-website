@@ -4,7 +4,9 @@ const Home = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <h1>Home</h1>        
+            <div className="mt-20">
+                <h1>Home</h1>
+            </div>
         </div>
     );
 };

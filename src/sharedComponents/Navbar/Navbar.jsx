@@ -8,7 +8,7 @@ const Navbar = () => {
          <li><NavLink to='tourists/list'>My List</NavLink></li>
     </>
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100 shadow-sm fixed top-0 z-0 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -16,22 +16,24 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-[#0F3D4C]">
                        {navList}
                     </ul>
                 </div>
-                <NavLink className="btn btn-ghost text-xl" to='/'>TravelSphere</NavLink>
+                <NavLink className="btn btn-ghost text-2xl text-[#0F3D4C]" to='/'>
+                <img src="https://i.ibb.co.com/QFfycZyq/logo.webp" alt="logo" className="w-10 h-10 rounded-full"/>
+                TravelSphere</NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 text-[#0F3D4C] text-lg">
                    {
                     navList
                    }
                 </ul>
             </div>
             <div className="navbar-end">
-                <NavLink className="btn">Login</NavLink>
-                <NavLink className="btn ml-3">Register</NavLink>
+                <NavLink className="btn text-[#0F3D4C] bg-[#3D8E95] font-medium text-lg" to='/login'>Login</NavLink>
+                <NavLink className="btn mx-3 text-[#0F3D4C] bg-[#D9ED82] font-medium text-lg" to='/register'>Register</NavLink>
             </div>
         </div>
     );
