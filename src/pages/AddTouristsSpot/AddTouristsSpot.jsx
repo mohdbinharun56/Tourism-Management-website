@@ -1,53 +1,72 @@
+import { useForm } from 'react-hook-form';
 import './Addtourist.css';
 
 const AddTouristsSpot = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm()
+
+    const handleAddForm = (data) => {
+        console.log(data)
+    
+    }
+
     return (
         <div className="addForm text-white pt-20 pb-5">
             <div className='pt-10 pb-2 px-10 shadow-md shadow-slate-300 w-1/2 mx-auto'>
                 <h1 className='text-4xl'>Add Tourists</h1>
-                <form className=' space-y-3'>
+                <form className=' space-y-3' onSubmit={handleSubmit(handleAddForm)}>
                     <div className='flex flex-col md:flex-row gap-10'>
                         <div className='lg:w-1/2'>
                             <label className='block'>Image URl</label>
-                            <input type="text" className='opacity-60 w-full p-2' />
+                            <input type="text" {...register("image", { required: true })} className='opacity-60 w-full p-2' />
+                            {errors.image && <span className='text-red-500'>This field is required</span>}
                         </div>
                         <div className='lg:w-1/2'>
                             <label htmlFor="" className='block'>Spot Name</label>
-                            <input type="text" className='opacity-60 w-full p-2' />
+                            <input type="text" {...register("spotName", { required: true })} className='opacity-60 w-full p-2' />
+                            {errors.spotName && <span className='text-red-500'>This field is required</span>}
                         </div>
                     </div>
                     <div className='flex flex-col md:flex-row gap-10'>
                         <div className='lg:w-1/2'>
                             <label htmlFor="" className='block'>Country Name</label>
-                            <input type="text" className='opacity-60 w-full p-2' />
+                            <input type="text" {...register("countryName", { required: true })} className='opacity-60 w-full p-2' />
+                            {errors.countryName && <span className='text-red-500'>This field is required</span>}
                         </div>
                         <div className='lg:w-1/2'>
                             <label htmlFor="" className='block'>Location</label>
-                            <input type="text" className='opacity-60 w-full p-2' />
+                            <input type="text" {...register("location", { required: true })} className='opacity-60 w-full p-2' />
+                            {errors.location && <span className='text-red-500'>This field is required</span>}
                         </div>
                     </div>
                     <div className='flex flex-col md:flex-row gap-10'>
                         <div className='lg:w-1/2'>
                             <label htmlFor="" className='block'>Short Description</label>
-                            <input type="text" className='opacity-60 w-full p-2' />
+                            <input type="text" {...register("description", { required: true })} className='opacity-60 w-full p-2' />
+                            {errors.description && <span className='text-red-500'>This field is required</span>}
                         </div>
                         <div className='lg:w-1/2'>
                             <label htmlFor="" className='block'>Average Cost</label>
-                            <input type="text" className='opacity-60 w-full p-2' />
+                            <input type="text" {...register("averageCost", { required: true })} className='opacity-60 w-full p-2' />
+                            {errors.averageCost && <span className='text-red-500'>This field is required</span>}
                         </div>
                     </div>
                     <div className='flex flex-col md:flex-row gap-10'>
                         <div className='lg:w-1/2'>
                             <label htmlFor="" className='block'>Seasonality</label>
-                            <select className='opacity-60 w-full p-2'>
+                            <select {...register("seasonality", { required: true })} className='opacity-60 w-full p-2'>
                                 <option value="">Seasonality</option>
                                 <option value="summer">Summer</option>
                                 <option value="winter">Winter</option>
                             </select>
+                            {errors.seasonality && <span className='text-red-500'>This field is required</span>}
                         </div>
                         <div className='lg:w-1/2'>
                             <label htmlFor="" className='block'>Travel Time</label>
-                            <select className='opacity-60 w-full p-2'>
+                            <select {...register("travelTime", { required: true })} className='opacity-60 w-full p-2'>
                                 <option value="">Travel Time</option>
                                 <option value="1">1 days</option>
                                 <option value="2">2 days</option>
@@ -57,19 +76,22 @@ const AddTouristsSpot = () => {
                                 <option value="6">6 days</option>
                                 <option value="7">7 days</option>
                             </select>
+                            {errors.travelTime && <span className='text-red-500'>This field is required</span>}
                         </div>
                     </div>
                     <label htmlFor="" className='block'>Total Visitors</label>
-                    <input type="number" className='opacity-60 w-full p-2' />
-
+                    <input type="number" {...register("visitors", { required: true })} className='opacity-60 w-full p-2' />
+                    {errors.visitors && <span className='text-red-500'>This field is required</span>}
                     <div className='flex flex-col md:flex-row gap-10'>
                         <div className='lg:w-1/2'>
                             <label htmlFor="" className='block'>User Name</label>
-                            <input type="text" className='opacity-60 w-full p-2' />
+                            <input type="text" {...register("userName", { required: true })} className='opacity-60 w-full p-2' />
+                            {errors.userName && <span className='text-red-500'>This field is required</span>}
                         </div>
                         <div className='lg:w-1/2'>
                             <label htmlFor="" className='block'>User Email</label>
-                            <input type="email" className='opacity-60 w-full p-2' />
+                            <input type="email" {...register("email", { required: true })} className='opacity-60 w-full p-2' />
+                            {errors.email && <span className='text-red-500'>This field is required</span>}
                         </div>
                     </div>
 
