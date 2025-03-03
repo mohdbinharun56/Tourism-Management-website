@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import './Addtourist.css';
+import Swal from 'sweetalert2';
 
 const AddTouristsSpot = () => {
     const {
@@ -8,8 +9,30 @@ const AddTouristsSpot = () => {
         formState: { errors },
     } = useForm()
 
-    const handleAddForm = (data) => {
-        console.log(data)
+    const handleAddForm = (data,e) => {
+        e.preventDefault();
+        console.log(data);
+        fetch('http://localhost:5000/tourists/add',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            // console.log(data)
+            e.target.reset()
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Tourists spot added',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
+        .catch(error=>console.log(error.message))
     
     }
 
@@ -17,7 +40,7 @@ const AddTouristsSpot = () => {
         <div className="addForm text-white pt-20 pb-5">
             <div className='pt-10 pb-2 px-10 shadow-md shadow-slate-300 w-1/2 mx-auto'>
                 <h1 className='text-4xl'>Add Tourists</h1>
-                <form className=' space-y-3' onSubmit={handleSubmit(handleAddForm)}>
+                <form className='space-y-3' onSubmit={handleSubmit(handleAddForm)}>
                     <div className='flex flex-col md:flex-row gap-10'>
                         <div className='lg:w-1/2'>
                             <label className='block'>Image URl</label>
