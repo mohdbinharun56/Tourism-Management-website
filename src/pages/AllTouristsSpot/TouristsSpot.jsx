@@ -33,7 +33,7 @@ const TouristsSpot = () => {
                 <TabPanel>
                     <h2>Bangladesh content </h2>
                     {
-                        filterCountry('hutej').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
+                        filterCountry('Bangladesh').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
                     }
                 </TabPanel>
                 <TabPanel>
@@ -45,7 +45,7 @@ const TouristsSpot = () => {
                 <TabPanel>
                     <h2>Indonesia content</h2>
                     {
-                        filterCountry('mosygy').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
+                        filterCountry('Indonesia').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
                     }
                 </TabPanel>
                 <TabPanel>

@@ -56,7 +56,16 @@ const AddTouristsSpot = () => {
                     <div className='flex flex-col md:flex-row gap-10'>
                         <div className='lg:w-1/2'>
                             <label htmlFor="" className='block'>Country Name</label>
-                            <input type="text" {...register("countryName", { required: true })} className='opacity-60 w-full p-2' />
+                            <select {...register("countryName", { required: true })} className='opacity-60 w-full p-2'>
+                                <option value="">Country</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="Cambodia">Cambodia</option>
+                            </select>
+                            {/* <input type="text" {...register("countryName", { required: true })} className='opacity-60 w-full p-2' /> */}
                             {errors.countryName && <span className='text-red-500'>This field is required</span>}
                         </div>
                         <div className='lg:w-1/2'>
