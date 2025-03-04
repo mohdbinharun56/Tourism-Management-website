@@ -39,31 +39,31 @@ const TouristsSpot = () => {
                 <TabPanel>
                     <h2>Thailand content</h2>
                     {
-                        filterCountry('Thailand').map(tourist => <p key={tourist._id}>{tourist.spotName}</p>)
+                        filterCountry('Thailand').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
                     }
                 </TabPanel>
                 <TabPanel>
                     <h2>Indonesia content</h2>
                     {
-                        filterCountry('mosygy').map(tourist => <p key={tourist._id}>{tourist.spotName}</p>)
+                        filterCountry('mosygy').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
                     }
                 </TabPanel>
                 <TabPanel>
                     <h2>Malaysia content</h2>
                     {
-                        filterCountry('Malaysia').map(tourist => <p key={tourist._id}>{tourist.spotName}</p>)
+                        filterCountry('Malaysia').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
                     }
                 </TabPanel>
                 <TabPanel>
                     <h2>Vietnam content</h2>
                     {
-                        filterCountry('Vietnam').map(tourist => <p key={tourist._id}>{tourist.spotName}</p>)
+                        filterCountry('Vietnam').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
                     }
                 </TabPanel>
                 <TabPanel>
                     <h2>Cambodia content</h2>
                     {
-                        filterCountry('Cambodia').map(tourist => <p key={tourist._id}>{tourist.spotName}</p>)
+                        filterCountry('Cambodia').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
                     }
                 </TabPanel>
             </Tabs>
