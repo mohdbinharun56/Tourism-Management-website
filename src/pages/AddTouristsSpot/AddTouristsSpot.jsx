@@ -82,7 +82,7 @@ const AddTouristsSpot = () => {
                         </div>
                         <div className='lg:w-1/2'>
                             <label htmlFor="" className='block'>Average Cost</label>
-                            <input type="text" {...register("averageCost", { required: true })} className='opacity-60 w-full p-2' />
+                            <input type="number" {...register("averageCost", { required: true })} className='opacity-60 w-full p-2' />
                             {errors.averageCost && <span className='text-red-500'>This field is required</span>}
                         </div>
                     </div>

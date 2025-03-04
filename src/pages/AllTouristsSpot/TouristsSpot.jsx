@@ -18,7 +18,7 @@ const TouristsSpot = () => {
     }
     return (
         <div>
-            <input type="checkbox" /> Sorting Avg_Cost
+            <div className='flex justify-end mr-4'><input type="checkbox" /> <span className='mr-2 ml-2'>Sorting Avg_Cost</span></div>
 
             <Tabs>
                 <TabList>
@@ -33,7 +33,7 @@ const TouristsSpot = () => {
                 <TabPanel>
                     <h2>Bangladesh content </h2>
                     {
-                        filterCountry('Bangladesh').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
+                        filterCountry('hutej').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
                     }
                 </TabPanel>
                 <TabPanel>
