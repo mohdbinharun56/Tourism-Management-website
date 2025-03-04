@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../Root";
 import Home from "../pages/Home/Home";
 import AddTouristsSpot from "../pages/AddTouristsSpot/AddTouristsSpot";
+import TouristsSpot from "../pages/AllTouristsSpot/TouristsSpot";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,11 @@ const router = createBrowserRouter([
             {
                 path: '/tourist',
                 element: <AddTouristsSpot></AddTouristsSpot>
+            },
+            {
+                path: '/tourists',
+                element: <TouristsSpot></TouristsSpot>,
+                loader: ()=> fetch('http://localhost:5000/tourists')
             }
         ]
     }
