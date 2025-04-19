@@ -16,9 +16,21 @@ const TouristsSpot = () => {
     const filterCountry = country => {
         return tourists.filter(tourist => tourist.countryName === country);
     }
+    const handleSort = (e) =>{
+        const isSort = e.target.checked;
+        console.log(isSort);
+       
+        if(isSort){
+            setTourists([...tourists].sort((a,b)=> b.averageCost - a.averageCost))
+        }else{
+            setTourists(loadedAllTouristsSpot)
+        }
+    }
     return (
         <div>
-            <div className='flex justify-end mr-4'><input type="checkbox" /> <span className='mr-2 ml-2'>Sorting Avg_Cost</span></div>
+            <form>
+                <div className='flex justify-end mr-4'><input type="checkbox" onChange={handleSort}/> <span className='mr-2 ml-2'>Sorting Avg_Cost</span></div>
+            </form>
 
             <Tabs>
                 <TabList>
@@ -33,7 +45,7 @@ const TouristsSpot = () => {
                 <TabPanel>
                     <h2>Bangladesh content </h2>
                     {
-                        filterCountry('hutej').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
+                        filterCountry('Bangladesh').map(tourists => <TouristsCard key={tourists._id} tourists={tourists}></TouristsCard>)
                     }
                 </TabPanel>
                 <TabPanel>

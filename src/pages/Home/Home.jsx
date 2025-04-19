@@ -3,10 +3,11 @@ import Banner from "../../sharedComponents/Banner/Banner";
 import TouristSpot from "../../sharedComponents/TouristSpotCard/TouristSpot";
 
 const Home = () => {
-    const loadedTouristsSpot = useLoaderData();
-    console.log(loadedTouristsSpot);
+    const loadedTouristsSpot = useLoaderData(); 
+    // console.log(loadedTouristsSpot);
     return (
         <div>
+            {/* https://cerebrascoder.com/p/431289#contact */} 
             <Banner></Banner>
             {/* Tourist Spot Card*/}
             <div className="mx-20">
