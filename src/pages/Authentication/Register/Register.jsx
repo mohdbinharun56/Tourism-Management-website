@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import UseContext from "../../../sharedComponents/ContextProvider/UseContext";
 
 const Register = () => {
-    const {registerUser} = UseContext();
+    const {registerUser,updateUser} = UseContext();
 
     const [error,setError] = useState("");
     const {
@@ -36,6 +36,11 @@ const Register = () => {
         .then(userCredential=>{
             const user = userCredential.user;
             console.log(user);
+            // add display name and photo-url using updateProfile
+            updateUser(name,photo)
+            .then(()=>console.log(""))
+            .catch(error=>console.log(error))
+
         })
         .catch(error=>console.error(error.message))
     }

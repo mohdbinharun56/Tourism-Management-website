@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import React, { createContext } from 'react';
 import auth from '../../firebase.config/config';
 
@@ -9,8 +9,15 @@ const CreateContext = ({children}) => {
     const registerUser = (email,password) => {
         return createUserWithEmailAndPassword(auth,email,password);
     }
+    const updateUser = (name,photo) =>{
+        return updateProfile(auth.currentUser,{
+            displayName: name,
+            photoURL: photo
+        })
+    }
     const info = {
-        registerUser
+        registerUser,
+        updateUser
     }
 
     return (
