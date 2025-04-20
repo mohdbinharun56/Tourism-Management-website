@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import UseContext from "../../../sharedComponents/ContextProvider/UseContext";
 
 const Register = () => {
+    const {registerUser} = UseContext();
+
     const [error,setError] = useState("");
     const {
         register,
@@ -29,6 +32,12 @@ const Register = () => {
 
         setError("");
         console.log(name,email,password,photo);
+        registerUser(email,password)
+        .then(userCredential=>{
+            const user = userCredential.user;
+            console.log(user);
+        })
+        .catch(error=>console.error(error.message))
     }
 
 
