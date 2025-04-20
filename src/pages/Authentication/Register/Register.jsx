@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import UseContext from "../../../sharedComponents/ContextProvider/UseContext";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const {registerUser,updateUser} = UseContext();
@@ -13,8 +14,9 @@ const Register = () => {
         formState: { errors },
     } = useForm()
 
-    const handleRegister = (data) => {
+    const handleRegister = (data,e) => {
         // console.log(data);
+        e.preventDeafult();
         const {name,email,password,photo} = data;
 
         if(password.length < 6){
@@ -38,9 +40,15 @@ const Register = () => {
             console.log(user);
             // add display name and photo-url using updateProfile
             updateUser(name,photo)
-            .then(()=>console.log(""))
+            .then(()=>{
+                Swal.fire({
+                    title: "Success",
+                    text: "Register success",
+                    icon: "success"
+                })
+                e.target.reset();
+            })
             .catch(error=>console.log(error))
-
         })
         .catch(error=>console.error(error.message))
     }

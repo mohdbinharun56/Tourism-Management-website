@@ -1,17 +1,32 @@
 import { useForm } from "react-hook-form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UseContext from "../../../sharedComponents/ContextProvider/UseContext";
 
 const Login = () => {
+    const {loginUser} = UseContext();
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm()
 
-    const handleLogin = (data) => {
+    const navigate = useNavigate();
+
+    const handleLogin = (data,e) => {
         // console.log(data);
-        
+        e.preventDefault();
+
+        const {email,password} = data;
+        loginUser(email,password)
+        .then(userCredential=>{
+            const user = userCredential.user;
+            console.log(user);
+            e.target.reset();
+            navigate('/')
+        })
+        .catch(error=>console.log(error))
     }
 
 
