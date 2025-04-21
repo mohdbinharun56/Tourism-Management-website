@@ -5,6 +5,9 @@ import AddTouristsSpot from "../pages/AddTouristsSpot/AddTouristsSpot";
 import TouristsSpot from "../pages/AllTouristsSpot/TouristsSpot";
 import Login from "../pages/Authentication/Login/Login";
 import Register from "../pages/Authentication/Register/Register";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ProtectedRoute from "../sharedComponents/ProtectedRoute/ProtectedRoute";
+import ViewDetails from "../pages/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +21,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/tourist',
-                element: <AddTouristsSpot></AddTouristsSpot>
+                element: <ProtectedRoute>
+                    <AddTouristsSpot></AddTouristsSpot>
+                </ProtectedRoute>
             },
             {
                 path: '/tourists',
@@ -32,8 +37,16 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/tourist/:id',
+                element:<ProtectedRoute>
+                    <ViewDetails></ViewDetails>
+                </ProtectedRoute>,
+                loader: ({params})=> fetch(`http://localhost:5000/tourists/${params.id}`)
             }
-        ]
+        ],
+        errorElement: <ErrorPage></ErrorPage>
     }
 ])
 

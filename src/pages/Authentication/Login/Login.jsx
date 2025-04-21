@@ -20,9 +20,9 @@ const Login = () => {
 
         const {email,password} = data;
         loginUser(email,password)
-        .then(userCredential=>{
-            const user = userCredential.user;
-            console.log(user);
+        .then(()=>{
+            // const user = userCredential.user;
+            // console.log(user);
             e.target.reset();
             navigate('/')
         })

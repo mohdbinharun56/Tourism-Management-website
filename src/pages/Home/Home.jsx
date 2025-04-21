@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "../../sharedComponents/Banner/Banner";
 import TouristSpot from "../../sharedComponents/TouristSpotCard/TouristSpot";
+import CountrySection from "../../sharedComponents/CountrySection/CountrySection";
 
 const Home = () => {
     const loadedTouristsSpot = useLoaderData(); 
@@ -18,6 +19,9 @@ const Home = () => {
                     {
                         loadedTouristsSpot?.map(touristsSpot => <TouristSpot key={touristsSpot._id} touristsSpot={touristsSpot}></TouristSpot>)
                     }
+                </div>
+                <div>
+                    <CountrySection touristsSpot={loadedTouristsSpot}></CountrySection>
                 </div>
             </div>
         </div>
